@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="img/j-logo.png">
+    <title>CONTACT LIST</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../static/css/default.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome JS -->
+    <script src="../static/js/solid.js"></script>
+    <script src="../static/js/fontawesome.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/js/ie-emulation-modes-warning.js">
+    <link rel="shortcut icon" href="../static/img/ico.png">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-image: url('../static/img/ico.png');background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-blend-mode:overlay;background-color:rgba(255, 255, 255, 0.95);">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- hamburger menu when resized -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hamburger-5" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button> <!-- hamburger menu -->
+          <a class="navbar-brand" href="#">
+            <img alt="PSA" src="../static/img/ico.png" height="25" width="25">
+          </a>
+        </div>
+        <!-- navbar-collapse - hides when resized -->
+        <div class="collapse navbar-collapse" id="hamburger-5">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Dashboard<span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" target="_blank" onclick="window.open('https://beacons.ai/zenpao/home','_blank')"><small>beacons.ai/zenpao</small></a></li>
+                <li><a href="#" target="_blank" onclick="window.open('https://www.instagram.com/xio.pao/','_blank')"><small>instagram.com/xio.pao</small></a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#" target="_blank" onclick="window.open('https://www.bit.ly/aboutzenpao','_blank')"><small>LinkedIn</small></a></li>
+                <li><a href="#" target="_blank" onclick="window.open('https://github.com/zenpao','_blank')"><small>GitHub</small></a></li>
+              </ul>
+            </li>
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <p class="navbar-text hidden-xs">User: <span style="color:white">Current</span></p>
+            <li><a href="#" style="color:green" onclick="window.location.reload();" value="Refresh"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> </a></li>
+          </ul>
+          </div> <!-- /.navbar-collapse -->
+          </div> <!-- /.container -->
+        </nav>
+        <div class="container employee-list-padding">
+          <div class="container">
+            <button type="submit" class="btn btn-success btn-m">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="" style="color:white" data-toggle="modal" data-target="#modaladd">Add Contact</a>
+            </button>
+            <button type="submit" class="btn btn-warning btn-md" onclick="alert('Press CTRL + F to search.');">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </div> <!-- /.container -->
+          
+          <hr/>
+
+          {% with messages = get_flashed_messages() %} <!-- SUCCESS MESSAGE-->
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>{{message}}</strong>
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+
+          <!-- Table -->
+          <table class="table table-condensed table-hover borderless">
+            <thead>
+              <tr class="active">
+                <th><em>Ref. No.</em></th>
+                <th><em>Name</em></th>
+                <th><em>Address</em></th>
+                <th><em>Mobile No.</em></th>
+                <th><em>Email</em></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for row in read %}
+
+              <tr>
+                <td>{{row.id}}</td>
+                <td style="text-transform:uppercase;">{{row.name_last}}, {{row.name_first}} {{row.name_middle}} {{row.name_suffix}}</td>
+                <td style="text-transform:uppercase;">{{row.place_residential}}</td>
+                <td>{{row.no_mobile}}</td>
+                <td>{{row.email}}</td>
+                <td>
+                  <a href="/update/{{row.id}}" title="Update" data-toggle="modal" data-target="#modalupdate{{row.id}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                </td>
+                <td><a href="/delete/{{row.id}}" title="Delete" onclick="return confirm('Are you sure you want to delete this profile?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+              </td>
+            </td>
+          </tr>
+              {% endfor %}
+        </tbody>
+      </table>
+    </div> <!-- /.container -->
+
+<!-- Modal Add --> <!-- Modal Add --> <!-- Modal Add -->
+<div id="modaladd" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Contact</h4>
+      </div>
+      <div class="modal-body">
+        <form METHOD="POST" action="{{url_for('insert')}}">
+          <table class="table table-condensed borderless" id="ContactInformationSection">
+            <tbody>
+              <tr class="active">
+                <td><strong>CONTACT INFORMATION</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed table-hover borderless">
+            <tbody>
+              <tr>
+                <td><label for="name_last">LAST NAME</label></td>
+                <td><label for="name_first">FIRST NAME</label></td>
+                <td><label for="name_middle">MIDDLE NAME</label></td>
+                <td><label for="name_extension">SUFFIX</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" id="name_last" name="name_last" placeholder="" style="text-transform:uppercase;color:blue;width:100px" required></td>
+                <td><input type="text" id="name_first" name="name_first" placeholder="" style="text-transform:uppercase;color:blue;width:120px" required></td>
+                <td><input type="text" id="name_middle" name="name_middle" placeholder="" style="text-transform:uppercase;color:blue;width:100px"></td>
+                <td><input type="text" id="name_suffix" name="name_suffix" placeholder="" style="text-transform:uppercase;color:blue;width:80px"></td>
+              </tr>
+              <tr>
+                <td><label for="date_birth">BIRTH DATE</label></td>
+                <td><input type="date" id="date_birth" name="date_birth" style="width:135px"></td>
+                <td><label for="place_birth">BIRTH PLACE</label></td>
+                <td><input type="text" id="place_birth" name="place_birth" placeholder="[Municipality, Province]" value="" style="" required></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed table-hover borderless">
+            <tbody>
+              <tr>
+                <td><label for="place_residential">PERMANENT ADDRESS</label></td>
+                <td><input type="text" id="place_residential" name="place_residential" placeholder="[House number, Sitio/Purok/Street, Barangay, Municipality, Province]" style="width:450px;" required></td>
+              </tr>
+            </table>
+            <table class="table table-condensed table-hover borderless">
+              <tbody>
+                <tr>
+                  <td><label for="no_mobile">MOBILE NO.</label></td>
+                  <td><input id="no_mobile" name="no_mobile" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[63 and 10 Digits]" value="63" style="width:120px" required></td>
+                  <td><label for="email">EMAIL ADDRESS</label></td>
+                  <td><input type="text" id="email" name="email" placeholder="[email@domain.com]" value=""></td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="submit" class="btn btn-success btn-md" value="Save">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Update --> <!-- Modal Update --> <!-- Modal Update --> <!-- Modal Update -->
+{% for row in read %}
+<div id="modalupdate{{row.id}}" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Update Contact</h4>
+      </div>
+      <div class="modal-body">
+        <form METHOD="POST" action="{{url_for('update')}}">
+          <input type="hidden" name="id" value="{{row.id}}"> <!-- ID HIDDEN TO REFERENCE THE UPDATE -->
+          <table class="table table-condensed borderless" id="ContactInformationSection">
+            <tbody>
+              <tr class="active">
+                <td><strong>CONTACT INFORMATION</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed table-hover borderless">
+            <tbody>
+              <tr>
+                <td><label for="name_last">LAST NAME</label></td>
+                <td><label for="name_first">FIRST NAME</label></td>
+                <td><label for="name_middle">MIDDLE NAME</label></td>
+                <td><label for="name_extension">SUFFIX</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" id="name_last" name="name_last" placeholder="" value="{{row.name_last}}" style="text-transform:uppercase;color:blue;width:100px" required></td>
+                <td><input type="text" id="name_first" name="name_first" placeholder="" value="{{row.name_first}}" style="text-transform:uppercase;color:blue;width:120px" required></td>
+                <td><input type="text" id="name_middle" name="name_middle" placeholder="" value="{{row.name_middle}}" style="text-transform:uppercase;color:blue;width:100px"></td>
+                <td><input type="text" id="name_suffix" name="name_suffix" placeholder="" value="{{row.name_suffix}}" style="text-transform:uppercase;color:blue;width:80px"></td>
+              </tr>
+              <tr>
+                <td><label for="date_birth">BIRTH DATE</label></td>
+                <td><input type="date" id="date_birth" name="date_birth" value="{{row.date_birth}}"style="width:135px"></td>
+                <td><label for="place_birth">BIRTH PLACE</label></td>
+                <td><input type="text" id="place_birth" name="place_birth" placeholder="[Municipality, Province]" value="{{row.place_birth}}" style="" required></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed table-hover borderless">
+            <tbody>
+              <tr>
+                <td><label for="place_residential">PERMANENT ADDRESS</label></td>
+                <td><input type="text" id="place_residential" name="place_residential" placeholder="[House number, Sitio/Purok/Street, Barangay, Municipality, Province]" value="{{row.place_residential}}" style="width:450px;" required></td>
+              </tr>
+            </table>
+            <table class="table table-condensed table-hover borderless">
+              <tbody>
+                <tr>
+                  <td><label for="no_mobile">MOBILE NO.</label></td>
+                  <td><input id="no_mobile" name="no_mobile" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[63 and 10 Digits]" value="{{row.no_mobile}}" style="width:120px" required></td>
+                  <td><label for="email">EMAIL ADDRESS</label></td>
+                  <td><input type="text" id="email" name="email" placeholder="[email@domain.com]" value="{{row.email}}"></td>
+                </tr>
+              </tbody>
+            </table>
+          <input type="submit" class="btn btn-success btn-md" value="Save">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endfor %}
+    <footer>
+    </footer>
+    
+    <!-- jQuery (=without AJAX) -->
+    <script type="text/javascript" src="../static/bootstrap-3.3.7-dist/jq/jquery-2.1.4.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="../static/jq/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="../static/js/externalJS.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+1) Install Python v.3.8.10\python-3.8.10.exe
+
+2) In terminal, enter "python" and enter
+
+3) In terminal, "pip install flask" and enter
+
+4) In terminal, "pip install flask_sqlalchemy" and enter
+
+5) In folder, run run-app.bat

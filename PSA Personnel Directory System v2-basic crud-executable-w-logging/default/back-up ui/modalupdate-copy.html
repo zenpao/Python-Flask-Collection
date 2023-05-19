@@ -1,0 +1,474 @@
+<div class="container employee-list-padding">
+  <div class="container">
+    <button type="submit" class="btn btn-success btn-m">
+    <!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="{{ url_for('pds_add') }}" style="color:white">Add Personnel</a> -->
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="" style="color:white" data-toggle="modal" data-target="#modaladd">Add Personnel</a>
+    </button>
+    <button type="submit" class="btn btn-warning btn-md" onclick="alert('Press CTRL + F to search.');">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </button>
+  </div> <!-- /.container -->
+  
+  <hr/>
+  <!-- Table -->
+  <table class="table table-condensed table-hover borderless">
+    <thead>
+      <tr class="active">
+        <th><em>Ref. No.</em></th>
+        <th><em>Personnel</em></th>
+        <th><em>Designation</em></th>
+        <th><em>Mobile No.</em></th>
+        <th><em>Employment Status</em></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>#</td>
+        <td>SAMPLE NAME</td>
+        <td>SAMPLE POSITION</td>
+        <td>639233578992</td>
+        <td>INACTIVE</td>
+        <td>
+          <!-- <a href="{{ url_for('pds_update') }}" data-toggle="tooltip" data-placement="top" title="Personnel Information"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a> -->
+          <a href="" title="Update Personnel" data-toggle="modal" data-target="#modalupdate"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+        </td>
+        <td><a href="#" title="Delete Personnel" onclick="return confirm('Are you sure you want to delete this profile?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+      </td>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div> <!-- /.container employee -->
+
+<!-- Modal Update Personnel--> <!-- Modal Update Personnel--> <!-- Modal Update Personnel--> <!-- Modal Update Personnel-->
+<div id="modalupdate" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Update Personnel</h4>
+      </div>
+      <div class="modal-body">
+        <form METHOD="POST" action="">
+          <table class="table table-condensed borderless" id="EmployeeInformationSection">
+            <tbody>
+              <tr class="active">
+                <td><strong>PERSONNEL INFORMATION</strong></td>
+                <td><i>EMPLOYMENT STATUS:</i> <select id="status_employment" name="status">
+                  <option value="ACTIVE">ACTIVE</option>
+                  <option value="INACTIVE">INACTIVE</option>
+                  <option value="---" selected="selected">-</option>
+                </select></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed table-hover borderless">
+            <tbody>
+              <tr>
+                <td><label for="name_last">LAST NAME</label></td>
+                <td><label for="name_first">FIRST NAME</label></td>
+                <td><label for="name_middle">MIDDLE NAME</label></td>
+                <td><label for="name_extension">SUFFIX</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" id="name_last" name="name_last" placeholder="" style="text-transform:uppercase;color:blue;width:100px" required></td>
+                <td><input type="text" id="name_first" name="name_first" placeholder="" style="text-transform:uppercase;color:blue;width:120px" required></td>
+                <td><input type="text" id="name_middle" name="name_middle" placeholder="" style="text-transform:uppercase;color:blue;width:100px"></td>
+                <td><input type="text" id="name_suffix" name="name_suffix" placeholder="" style="text-transform:uppercase;color:blue;width:80px"></td>
+              </tr>
+              <tr>
+                <td><label for="date_birth">BIRTH DATE</label></td>
+                <td><input type="date" id="date_birth" name="date_birth" style="width:135px"></td>
+                <td><label for="place_birth">BIRTH PLACE</label></td>
+                <td><input type="text" id="place_birth" name="place_birth" placeholder="[Municipality, Province]" value="" style="" required></td>
+              </tr>
+              <tr>
+                <td><label for="sex">SEX</label></td>
+                <td>
+                  <select id="sex" name="sex">
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                    <option value="-" selected="selected">-</option>
+                  </select>
+                </td>
+                <td><label for="status_civil">CIVIL STATUS:</label></td>
+                <td>
+                  <select id="status_civil" name="status_civil">
+                    <option value="SINGLE">SINGLE</option>
+                    <option value="MARRIED">MARRIED</option>
+                    <option value="DIVORCED">DIVORCED</option>
+                    <option value="SEPARATED">SEPARATED</option>
+                    <option value="WIDOWED">WIDOWED</option>
+                    <option value="-" selected="selected">-</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="citizenship">CITIZENSHIP</label></td>
+                <td><select id="citizenship" name="citizenship">
+                  <option value="African">African</option>
+                  <option value="American">American</option>
+                  <option value="British">British</option>
+                  <option value="Canadian">Canadian</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="English">English</option>
+                  <option value="Filipino" selected="selected">Filipino</option>
+                  <option value="German">German</option>
+                  <option value="Indians">Indians</option>
+                  <option value="Indonesian">Indonesian</option>
+                  <option value="Iranian">Iranian</option>
+                  <option value="Iraqi">Iraqi</option>
+                  <option value="Israeli">Israeli</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Korean">Korean</option>
+                  <option value="Mexican">Mexican</option>
+                  <option value="Mongolian">Mongolian</option>
+                  <option value="Nigerian">Nigerian</option>
+                  <option value="Palestinian">Palestinian</option>
+                  <option value="Portogese">Portogese</option>
+                  <option value="Qatari">Qatari</option>
+                  <option value="Romanian">Romanian</option>
+                  <option value="Russian">Russian</option>
+                  <option value="Slovak">Slovak</option>
+                  <option value="Spaniard">Spaniard</option>
+                  <option value="Sri Lankan">Sri Lankan</option>
+                  <option value="Swedes">Swedes</option>
+                  <option value="Swiss">Swiss</option>
+                  <option value="Syrian">Syrian</option>
+                  <option value="Taiwanese">Taiwanese</option>
+                  <option value="Tibetan">Tibetan</option>
+                  <option value="Turks">Turks</option>
+                  <option value="Ugandan">Ugandan</option>
+                  <option value="Ukranian">Ukranian</option>
+                  <option value="Venezuelan">Venezuelan</option>
+                  <option value="Viatnamese">Viatnamese</option>
+                  <option value="Welsh">Welsh</option>
+                  <option value="Zimbabwean">Zimbabwean</option>
+                </select></td>
+                <td><label for="bloodtype">BLOOD TYPE</label></td>
+                <td><select id="bloodtype" name="bloodtype">
+                  <option value="A-">A-</option>
+                  <option value="A+">A+</option>
+                  <option value="A">A</option>
+                  <option value="AB-">AB-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB">AB</option>
+                  <option value="B-">B-</option>
+                  <option value="B+">B+</option>
+                  <option value="B">B</option>
+                  <option value="O-">O-</option>
+                  <option value="O+">O+</option>
+                  <option value="O">O</option>
+                  <option value="-" selected="selected">-</option>
+                </select></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed table-hover borderless">
+            <tbody>
+              <tr>
+                <td><label for="place_residential">PERMANENT ADDRESS</label></td>
+                <td><input type="text" id="place_residential" name="place_residential" placeholder="[House number, Sitio/Purok/Street, Barangay, Municipality, Province]" style="width:450px;" required></td>
+              </tr>
+            </table>
+            <table class="table table-condensed table-hover borderless">
+              <tbody>
+                <tr>
+                  <td><label for="no_mobile">MOBILE NO.</label></td>
+                  <td><input id="no_mobile" name="no_mobile" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[63 and 10 Digits]" value="63" style="width:120px" required></td>
+                  <td><label for="email">EMAIL ADDRESS</label></td>
+                  <td><input type="text" id="email" name="email" placeholder="[email@domain.com]" value=""></td>
+                </tr>
+                <tr>
+                  <td><label for="no_gsissss">GSIS/SSS NO.</label></td>
+                  <td><input id="no_gsissss" name="no_gsissss" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "10" placeholder="[10 Digits]" value="" style="" required></td>
+                  <td><label for="no_pagibig_mp1">PAG-IBIG MP1 NO.</label></td>
+                  <td><input id="no_pagibig_mp1" name="no_pagibig_mp1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[12 Digits]" value="" style="" required></td>
+                </tr>
+                <tr>
+                  <td><label for="no_philhealth">PHILHEALTH NO.</label></td>
+                  <td><input id="no_philhealth" name="no_philhealth" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[12 Digits]" value="" style="" required></td>
+                  <td><label for="no_pagibig_mp2">PAG-IBIG MP2 NO.</label></td>
+                  <td><input id="no_pagibig_mp2" name="no_pagibig_mp2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[12 Digits]" value="" style=""></td>
+                </tr>
+                <tr>
+                  <td><label for="no_employee">EMPLOYEE ID</label></td>
+                  <td><input id="no_employee" name="no_employee" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "6" placeholder="[6 Digits]" value="" style=""></td>
+                  <td><label for="no_tin">TIN NO.</label></td>
+                  <td><input id="no_tin" name="no_tin" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "9" placeholder="[9 Digits]" value="" style="" required></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-condensed">
+              <tbody>
+                <tr>
+                  <td><label for="dependents">DEPENDENTS</label></td>
+                </tr>
+              </table>
+              <table class="table table-condensed table-hover borderless">
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td><em>Name</em></td>
+                    <td><em>Mobile No.</em></td>
+                    <td><em>Birth Date</em></td>
+                  </tr>
+                  <tr>
+                    <td><label for="name_spouse">SPOUSE</label></td>
+                    <td><input type="text" id="name_spouse" name="name_spouse" placeholder="[Last Name, First Name, Middle Initial]" value="" style="text-transform:uppercase"></td>
+                    <td><input id="no_spouse" name="no_spouse" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="[63 and 10 Digits]" value="63" style="width:120px"></td>
+                    <td><input type="date" id="date_birth_spouse" name="date_birth_spouse" style="width:135px"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="name_children1">CHILDREN</label></td>
+                    <td><input type="text" id="name_children1" name="name_children1" placeholder="[Last Name, First Name, Middle Initial]" value="" style="text-transform:uppercase"></td>
+                    <td><input id="no_children1" name="no_children1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="" value="" style="width:120px" disabled></td>
+                    <td><input type="date" id="date_birth_children1" name="date_birth_children1" style="width:135px"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="name_children2"></label></td>
+                    <td><input type="text" id="name_children2" name="name_children2" placeholder="[Last Name, First Name, Middle Initial]" value="" style="text-transform:uppercase"></td>
+                    <td><input id="no_children2" name="no_children2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="" value="" style="width:120px" disabled></td>
+                    <td><input type="date" id="date_birth_children2" name="date_birth_children2" style="width:135px"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="name_children3"></label></td>
+                    <td><input type="text" id="name_children3" name="name_children3" placeholder="[Last Name, First Name, Middle Initial]" value="" style="text-transform:uppercase"></td>
+                    <td><input id="no_children3" name="no_children3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12" placeholder="" value="" style="width:120px" disabled></td>
+                    <td><input type="date" id="date_birth_children3" name="date_birth_children3" style="width:135px"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="name_children4"></label></td>
+                    <td><input type="text" id="name_children4" name="name_children4" placeholder="[Last Name, First Name, Middle Initial]" value="" style="text-transform:uppercase"></td>
+                    <td><input id="no_children4" name="no_children4" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "12"  placeholder="" value="" style="width:120px" disabled></td>
+                    <td><input type="date" id="date_birth_children4" name="date_birth_children4" style="width:135px"></td>
+                  </tr>
+                </table>
+                
+                <table class="table table-condensed">
+                  <tbody>
+                    <tr class="active">
+                      <td><label for="dependents">EDUCATIONAL BACKGROUND</label></td>
+                    </tr>
+                  </table>
+                  <table class="table table-condensed table-hover borderless">
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td><em>Name of School</em></td>
+                        <td><em>Degree/Course</em></td>
+                      </tr>
+                      <tr>
+                        <td><label for="school_primary">PRIMARY</label></td>
+                        <td><input type="text" id="school_primary" name="school_primary" placeholder="" style="text-transform:uppercase;width:300px;" required></td>
+                        <td><input type="text" id="degree_primary" name="degree_primary" placeholder="" value="ELEMENTARY" style="width:110px" disabled></td>
+                      </tr>
+                      <tr>
+                        <td><label for="school_secondary">SECONDARY</label></td>
+                        <td><input type="text" id="school_secondary" name="school_secondary" placeholder="" style="text-transform:uppercase;width:300px;" required></td>
+                        <td><input type="text" id="degree_secondary" name="degree_secondary" placeholder="" value="HIGH SCHOOL" style="width:110px" disabled></td>
+                      </tr>
+                      <tr>
+                        <td><label for="school_vocational1">VOCATIONAL COURSE</label></td>
+                        <td><input type="text" id="school_vocational1" name="school_vocational1" placeholder="" style="text-transform:uppercase;width:300px;"></td>
+                        <td><input type="text" id="degree_vocational1" name="degree_vocational1" placeholder="" value="" style="text-transform:uppercase;width:110px"></td>
+                      </tr>
+                      <tr>
+                        <td><label for="school_college1">TERTIARY</label></td>
+                        <td><input type="text" id="school_college1" name="school_college1" placeholder="" style="text-transform:uppercase;width:300px;"></td>
+                        <td><input type="text" id="degree_college1" name="degree_college1" placeholder="" value="" style="text-transform:uppercase;width:110px"></td>
+                      </tr>
+                      <tr>
+                        <td><label for="school_graduate1">GRADUATE STUDIES</label></td>
+                        <td><input type="text" id="school_graduate1" name="school_graduate1" placeholder="" style="text-transform:uppercase;width:300px;"></td>
+                        <td><input type="text" id="degree_graduate1" name="degree_graduate1" placeholder="" value="" style="text-transform:uppercase;width:110px"></td>
+                      </tr>
+                    </table>
+                    <table class="table table-condensed">
+                      <tbody>
+                        <tr class="active">
+                          <td><label for="dependents">ELIGIBILITY</label></td>
+                        </tr>
+                      </table>
+                      <table class="table table-condensed table-hover borderless">
+                        <tbody>
+                          <tr>
+                            <td></td>
+                            <td><em>Civil Service Eligibility</em></td>
+                            <td><em>Date & Place of Examination</em></td>
+                            <td><em>Date Issued & Rating/License No.</em></td>
+                          </tr>
+                          <tr>
+                            <td><label for="title_eligibility1">TITLE</label></td>
+                            <td><input type="text" id="title_eligibility1" name="title_eligibility1" placeholder="" style="text-transform:uppercase"></td>
+                            <td><input type="text" id="date_place_eligibility1" name="date_place_eligibility1" placeholder="" value="" style="width:180px;"></td>
+                            <td><input type="text" id="date_no_eligibility1" name="date_no_eligibility1" placeholder="" value="" style="width:125px;"></td>
+                          </tr>
+                          <tr>
+                            <td><label for="title_eligibility2"></label></td>
+                            <td><input type="text" id="title_eligibility2" name="title_eligibility2" placeholder="" style="text-transform:uppercase"></td>
+                            <td><input type="text" id="date_place_eligibility2" name="date_place_eligibility2" placeholder="" value="" style="width:180px;"></td>
+                            <td><input type="text" id="date_no_eligibility2" name="date_no_eligibility2" placeholder="" value="" style="width:125px;"></td>
+                          </tr>
+                        </table>
+                        <table class="table table-condensed">
+                          <tbody>
+                            <tr class="active">
+                              <td><label for="dependents">SERVICE RECORD</label></td>
+                            </tr>
+                          </table>
+                          <table class="table table-condensed table-hover borderless">
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td><em>Designation</em></td>
+                                <td><em>Place of Assignment</em></td>
+                                <td><em>Assumption Date</em></td>
+                                <td><em>Remarks</em></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td><input type="text" id="designation1" name="designation1" placeholder="" style="text-transform:uppercase;width:160px;"></td>
+                                <td><input type="text" id="place_designation1" name="place_designation1" placeholder="" value="" style="width:130px;"></td>
+                                <td><input type="date" id="date_designation1" name="date_designation1" placeholder="" value="" style="width:135px"></td>
+                                <td><input type="text" id="remarks_designation1" name="remarks_designation1" placeholder="PRESENT" style="width:80px;" disabled></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td><input type="text" id="designation2" name="designation2" placeholder="" style="text-transform:uppercase;width:160px;"></td>
+                                <td><input type="text" id="place_designation2" name="place_designation2" placeholder="" value="" style="width:130px;"></td>
+                                <td><input type="date" id="date_designation2" name="date_designation2" placeholder="" value="" style="width:135px"></td>
+                                <td><input type="text" id="remarks_designation2" name="remarks_designation2" placeholder="PREVIOUS" style="width:80px;" disabled></td>
+                              </tr>
+                            </table>
+                            
+                            <table class="table table-condensed">
+                              <tbody>
+                                <tr class="active">
+                                  <td ><label for="dependents">PERSONAL DATA SHEET / RESUME / CURRICULUM VITAE / CLEARANCES et al.</label></td>
+                                </tr>
+                              </table>
+                              <table class="table table-condensed table-hover borderless">
+                                <tbody>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><em>File Format [Year_PDS_Name]</em></td>
+                                    <td><em>File Format [Year_Clearances_Name]</em></td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><input type="file" id="file_pds" name="file_pds" required></td>
+                                    <td><input type="file" id="file_additional" name="file_additional" required></td>
+                                  </tr>
+                                </table>
+                                <table class="table table-condensed borderless">
+                                  <tbody>
+                                    <tr class="active">
+                                      <td><strong>EMPLOYEE TRAINING & DEVELOPMENT</strong></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <table class="table table-condensed table-hover borderless">
+                                  <tbody>
+                                    <tr>
+                                      <td><em>Title</em></td>
+                                      <td><em>Date</em></td>
+                                      <td><em>No. of Hours</em></td>
+                                      <td><em>Type</em></td>
+                                      <td><em>Conducted by</em></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" id="title_learning1" name="title_learning1" placeholder="" style="text-transform:uppercase;width:140px;"></td>
+                                      <td><input type="date" id="date_learning1" name="date_learning1" placeholder="" value="" style="width:135px"></td>
+                                      <td><input type="number" id="hours_learning1" name="hours_learning1" placeholder="" style="width:50px;"></td>
+                                      <td><select id="type_learning1" name="type_learning1">
+                                        <option value="MANAGERIAL" selected="selected">MANAGERIAL</option>
+                                        <option value="SUPERVISORY">SUPERVISORY</option>
+                                        <option value="TECHNICAL">TECHNICAL</option>
+                                        <option value="FOUNDATION">FOUNDATION</option>
+                                        <option value="OTHERS">OTHERS</option>
+                                      </select></td>
+                                      <td><input type="text" id="conductedby_learning1" name="conductedby_learning1" placeholder="" style="text-transform:uppercase;width:70px"></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" id="title_learning2" name="title_learning2" placeholder="" style="text-transform:uppercase;width:140px;"></td>
+                                      <td><input type="date" id="date_learning2" name="date_learning2" placeholder="" value="" style="width:135px"></td>
+                                      <td><input type="number" id="hours_learning2" name="hours_learning2" placeholder="" style="width:50px;"></td>
+                                      <td><select id="type_learning2" name="type_learning2">
+                                        <option value="MANAGERIAL">MANAGERIAL</option>
+                                        <option value="SUPERVISORY" selected="selected">SUPERVISORY</option>
+                                        <option value="TECHNICAL">TECHNICAL</option>
+                                        <option value="FOUNDATION">FOUNDATION</option>
+                                        <option value="OTHERS">OTHERS</option>
+                                      </select></td>
+                                      <td><input type="text" id="conductedby_learning2" name="conductedby_learning2" placeholder="" style="text-transform:uppercase;width:70px"></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" id="title_learning3" name="title_learning3" placeholder="" style="text-transform:uppercase;width:140px;"></td>
+                                      <td><input type="date" id="date_learning3" name="date_learning3" placeholder="" value="" style="width:135px"></td>
+                                      <td><input type="number" id="hours_learning3" name="hours_learning3" placeholder="" style="width:50px;"></td>
+                                      <td><select id="type_learning3" name="type_learning3">
+                                        <option value="MANAGERIAL">MANAGERIAL</option>
+                                        <option value="SUPERVISORY">SUPERVISORY</option>
+                                        <option value="TECHNICAL" selected="selected">TECHNICAL</option>
+                                        <option value="FOUNDATION">FOUNDATION</option>
+                                        <option value="OTHERS">OTHERS</option>
+                                      </select></td>
+                                      <td><input type="text" id="conductedby_learning3" name="conductedby_learning3" placeholder="" style="text-transform:uppercase;width:70px"></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" id="title_learning4" name="title_learning4" placeholder="" style="text-transform:uppercase;width:140px;"></td>
+                                      <td><input type="date" id="date_learning4" name="date_learning4" placeholder="" value="" style="width:135px"></td>
+                                      <td><input type="number" id="hours_learning4" name="hours_learning4" placeholder="" style="width:50px;"></td>
+                                      <td><select id="type_learning4" name="type_learning4">
+                                        <option value="MANAGERIAL">MANAGERIAL</option>
+                                        <option value="SUPERVISORY">SUPERVISORY</option>
+                                        <option value="TECHNICAL">TECHNICAL</option>
+                                        <option value="FOUNDATION" selected="selected">FOUNDATION</option>
+                                        <option value="OTHERS">OTHERS</option>
+                                      </select></td>
+                                      <td><input type="text" id="conductedby_learning4" name="conductedby_learning4" placeholder="" style="text-transform:uppercase;width:70px"></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" id="title_learning5" name="title_learning5" placeholder="" style="text-transform:uppercase;width:140px;"></td>
+                                      <td><input type="date" id="date_learning5" name="date_learning5" placeholder="" value="" style="width:135px"></td>
+                                      <td><input type="number" id="hours_learning5" name="hours_learning5" placeholder="" style="width:50px;"></td>
+                                      <td><select id="type_learning4" name="type_learning5">
+                                        <option value="MANAGERIAL">MANAGERIAL</option>
+                                        <option value="SUPERVISORY">SUPERVISORY</option>
+                                        <option value="TECHNICAL">TECHNICAL</option>
+                                        <option value="FOUNDATION">FOUNDATION</option>
+                                        <option value="OTHERS" selected="selected">OTHERS</option>
+                                      </select></td>
+                                      <td><input type="text" id="conductedby_learning5" name="conductedby_learning5" placeholder="" style="text-transform:uppercase;width:70px"></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <table class="table table-condensed table-hover borderless">
+                                  <tbody>
+                                    <tr>
+                                      <td></td>
+                                      <td></td>
+                                      <td><em>File Format [Compiled_Trainings_Name]</em></td>
+                                    </tr>
+                                    <tr>
+                                      <td></td>
+                                      <td></td>
+                                      <td><input type="file" id="file_trainings" name="file_trainings" required></td>
+                                    </tr>
+                                  </table>
+                                  <input type="submit" class="btn btn-success btn-md" value="Save">
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

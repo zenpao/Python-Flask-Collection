@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="img/j-logo.png">
+    <title>CONTACT LIST</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../static/css/default-login.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome JS -->
+    <script src="../static/js/solid.js"></script>
+    <script src="../static/js/fontawesome.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/js/ie-emulation-modes-warning.js">
+    <link rel="shortcut icon" href="../static/img/ico.png">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-image: url('../static/img/ico.png');background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-blend-mode:overlay;background-color:rgba(255, 255, 255, 0.95);">
+    
+    <div class="container">
+      <section id="content">
+        <form METHOD="GET" action="{{url_for('login')}}">
+          <h1>Login</h1>
+          <div>
+            <input type="text" placeholder="Username" required="" id="username" name="username"/>
+          </div>
+          <div>
+            <input type="password" placeholder="Password" required="" id="password" name="password"/>
+          </div>
+          <div>
+            <input type="submit" value="Log in" />
+          </div>
+        </form><!-- form -->
+        
+      </section><!-- content -->
+    </div><!-- container -->
+
+    <footer>
+    </footer>
+    
+    <!-- jQuery (=without AJAX) -->
+    <script type="text/javascript" src="../static/bootstrap-3.3.7-dist/jq/jquery-2.1.4.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="../static/jq/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="../static/js/externalJS.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

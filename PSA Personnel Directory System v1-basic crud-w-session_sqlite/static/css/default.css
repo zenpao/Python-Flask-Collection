@@ -1,0 +1,108 @@
+/* 
+font-family: "Gotham";
+Blue: #134087;
+Red: #DE1129;
+Yellow: #FDC910;
+Gray:#9e9e9e;
+*/
+
+body {
+	padding-bottom: 70px;
+	font-family: "Arial";
+	/*
+	background-color: #ffffff;
+	background-image: url('../img/PSA-Small-2.jpg');
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: 200px;
+	background-attachment: fixed;
+	opacity: 0.2;
+	*/
+}
+
+.borderless > thead > tr > th,
+.borderless > tbody > tr > th,
+.borderless > tfoot > tr > th,
+.borderless > thead > tr > td,
+.borderless > tbody > tr > td,
+.borderless > tfoot > tr > td {
+  border-top: none;
+}
+
+  .republic-text {
+	font-family: "Arial";
+	font-size:smaller;
+	text-align: center;
+  }
+
+  .psa-text {
+	font-family: "Arial";
+	font-size:medium;
+	text-align: center;
+  }
+
+  .benguet-text {
+	font-family: "Arial";
+	font-size:small;
+	text-align: center;
+  }
+
+  .center-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+  }
+
+  .center-text {
+	  text-align: center;
+  }
+
+  input::placeholder {
+    text-align: center;
+}
+
+  .employee-list-padding {
+	  padding-top: 70px;
+  }
+
+  .psd-padding {
+	  padding-top: 20px;
+	  padding-left: 100px;
+	  padding-right:100px;
+  }
+
+  .form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+	margin-bottom: 10px;
+  }
+  .form-signin .checkbox {
+	font-weight: normal;
+  }
+  .form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+	z-index: 2;
+  }
+  .form-signin input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+  }
